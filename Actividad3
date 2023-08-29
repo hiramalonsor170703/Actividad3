@@ -1,0 +1,125 @@
+//main
+package Actividad31;
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args) {	
+Scanner scan = new Scanner(System.in);
+ System.out.println("Que quieres hacer?");
+ System.out.println("1 = calcular datos de un cuadrado");
+ System.out.println("2 = calcular datos de un circulo ");
+ System.out.println("3 = salir");
+ int opcion = Integer.parseInt(scan.nextLine());
+    switch (opcion) {
+   case 1:
+	   Scanner eleccion1 = new Scanner(System.in);
+int seguir = 1 ;
+while (seguir == 1){
+	System.out.println ("ingresa un lado del cuadrado");
+	double lado = Double.parseDouble(scan.nextLine());Cuadrado Cuadrado = new Cuadrado(lado);
+	System.out.println("Que quieres obtener del cuadrado?");
+	System.out.println("1 = area");
+	System.out.println("2 = perimetro ");
+	System.out.println("3 = diagonal");
+	
+	Scanner scan1 = new  Scanner (System.in);
+	String respuesta = scan1.nextLine();
+	double opcuadrado = Integer.parseInt (respuesta);
+if (opcuadrado == 1) {
+    System.out.println("El area del cuadrado es " + Cuadrado.calculaArea ()) ;	
+}
+else if (opcuadrado == 2) {
+   System.out.println("El perimetro del cuadrado es " + Cuadrado.calculaPerimetro ()) ;
+}
+else {
+   System.out.println("La diagonal del cuadrado es " + Cuadrado.calculaDiagonal ()) ;
+}
+
+   System.out.println("1 = repetir programa");
+   System.out.println("2 = terminar programa");
+	  seguir = eleccion1.nextInt();
+	   }
+break;
+    
+
+
+	case 2: 
+		
+		System.out.println ("ingresa el radio del circulo ");
+	double radio = Double.parseDouble(scan.nextLine ());Circulo Circulo = new Circulo(radio);
+	
+	System.out.println("Que quieres obtener del circulo?");
+	System.out.println("1 = area");
+	System.out.println("2 = circunferencia ");
+	
+	Scanner scan2 = new  Scanner (System.in);
+	  String solucion = scan2.nextLine();
+	  
+	int opcirculo = Integer.parseInt (solucion);
+if (opcirculo == 1) {		
+	System.out.println("El area del circulo es " + Circulo.calculaArea ());
+}
+else {
+	System.out.println("La circunferencia del circulo es " + Circulo.calculaCircunferencia ());
+}	  
+break;
+
+
+
+
+	case 3: 
+		System.out.println ("Adios");
+		System.exit(0);
+	break;default:System.out.println("Eleccion invalida, intente de nuevo");
+	break;
+	}
+	scan.close(); }
+
+}
+
+// cuadrado
+package Actividad31;
+
+public class Cuadrado {
+	double lado;
+	public Cuadrado (double lado) {
+	this.lado = lado;
+	}
+
+	public Cuadrado () {
+
+	this.lado = 170703/1000;
+	}
+
+	public double calculaArea() {
+	return lado*lado;
+	}
+
+	public double calculaPerimetro () {
+	return lado+lado+lado+lado;
+	}
+	public double calculaDiagonal () {
+	return Math.sqrt((lado*lado)+(lado*lado));
+	}
+}
+//circulo
+package Actividad31;
+
+public class Circulo {
+	 public double radio;
+	 public static final double PI=3.1416;	 
+
+	public Circulo (double radio2) {
+	    this.radio=radio2;
+	}
+	public Circulo () {
+	    this.radio=170703/1000;
+	}
+	public double calculaArea() {
+	return PI*radio*radio;
+	}
+	public double calculaCircunferencia() {
+	return PI*radio*2;
+	}
+
+	}
+
